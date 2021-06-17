@@ -24,3 +24,6 @@ noisex-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# Rustler's arctifacts
+/priv/native

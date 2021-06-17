@@ -1,0 +1,15 @@
+[package]
+name = "noise"
+version = "0.1.0"
+authors = []
+edition = "2018"
+
+[lib]
+name = "noise"
+path = "src/lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+rustler = "0.22.0-rc.1"
+bracket-noise = "0.8.2"
+image = "0.23.14"

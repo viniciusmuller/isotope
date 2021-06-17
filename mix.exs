@@ -7,22 +7,30 @@ defmodule Noisex.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
+      rustler_crates: rustler_crates(),
       deps: deps()
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
     [
       extra_applications: [:logger]
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
+  defp rustler_crates() do
+    [
+      noise: [
+        path: "native/noise",
+        mode: :release
+      ]
+    ]
+  end
+
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:benchee, "~> 1.0.1", only: :dev}
+      {:rustler, "~> 0.22.0-rc.1"},
     ]
   end
 end

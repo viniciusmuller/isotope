@@ -1,10 +1,13 @@
 defmodule Noisex.MixProject do
   use Mix.Project
 
+  # @source_url "https://github.com/Phiriq/noisex"
+  @version "0.1.1"
+
   def project do
     [
       app: :noisex,
-      version: "0.1.0",
+      version: @version,
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       rustler_crates: rustler_crates(),

@@ -1,21 +1,18 @@
 # Noisex
+![CI Status](https://github.com/Phiriq/noisex/actions/workflows/ci.yml/badge.svg)
 
-**TODO: Add description**
+Noisex is a library that provides Elixir bindings to the [bracket-noise](https://crates.io/crates/bracket-noise) crate, which is a rust port of [FastNoise Lite](https://github.com/Auburn/FastNoiseLite).
 
-## Installation
+<!-- ## Usage -->
+<!-- Check the documentation at `TODO: publish package` -->
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `noisex` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:noisex, "~> 0.1.0"}
-  ]
-end
+## Examples
+You can check and run the examples in the `examples` folder.
+```bash
+mix run examples/<example>.exs
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/noisex](https://hexdocs.pm/noisex).
+## Images
+![Output of the terrain.exs example](images/terrain.png)
+![Output of the cellular.exs example](images/cellular.png)
 

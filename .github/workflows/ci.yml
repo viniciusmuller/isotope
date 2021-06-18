@@ -14,7 +14,6 @@ jobs:
       matrix:
         elixir: [1.12.1]
         otp: [24.0]
-        rust: [stable]
 
     steps:
     - uses: actions/checkout@v2
@@ -24,12 +23,6 @@ jobs:
       with:
         otp-version: ${{ matrix.otp }}
         elixir-version: ${{ matrix.elixir }}
-
-    - name: Setup rust
-    - uses: actions/checkout@v2
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: ${{ matrix.rust }}
 
     - name: Retrieve mix dependencies cache
       uses: actions/cache@v1

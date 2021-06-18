@@ -30,6 +30,7 @@ defmodule Noisex.MixProject do
   defp deps do
     [
       # Development dependencies
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.24", only: :dev, runtime: false},
       {:benchee, "~> 1.0.1", only: :dev},

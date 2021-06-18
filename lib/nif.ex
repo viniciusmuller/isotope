@@ -5,7 +5,7 @@ defmodule Noisex.NIF do
   use Rustler, otp_app: :noisex, crate: "noise"
   alias Noisex.Noise
 
-  @spec chunk(Noise.noisemap(), integer(), integer(), integer(), integer()) ::
+  @spec chunk(Noise.noise_ref(), integer(), integer(), integer(), integer()) ::
           Noise.noisemap()
   @doc false
   def chunk(_noise, _sx, _sy, _ex, _ey),
@@ -15,7 +15,7 @@ defmodule Noisex.NIF do
   @doc false
   def write_to_file(_noisemap, _filename), do: error()
 
-  @spec new(Niose.options()) :: {atom, Noise.noise_ref()}
+  @spec new(Noise.options()) :: {atom, Noise.noise_ref()}
   @doc false
   def new(_options), do: error()
 

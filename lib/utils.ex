@@ -3,6 +3,7 @@ defmodule Noisex.Utils do
   Utilitary functions for working with noise maps.
   """
 
+  alias Noisex.Noise
   alias Noisex.NIF
 
   @doc """
@@ -16,7 +17,7 @@ defmodule Noisex.Utils do
   @doc """
   Shows the given noise map on the stdout as a 2D terrain.
   """
-  @spec show_noisemap(Noise.noisemap()) :: nil
+  @spec show_noisemap(Noise.noisemap()) :: :ok
   def show_noisemap(noisemap) do
     Enum.each(noisemap, fn y ->
       Enum.each(y, &IO.write(show(&1) <> IO.ANSI.reset()))

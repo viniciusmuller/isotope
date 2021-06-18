@@ -8,7 +8,15 @@ defmodule Noisex.MixProject do
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       rustler_crates: rustler_crates(),
+      dialyzer: dialyzer(),
       deps: deps()
+    ]
+  end
+
+  defp dialyzer do
+    [
+      plt_core_path: "priv/plts",
+      plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
     ]
   end
 

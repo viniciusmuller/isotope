@@ -1,7 +1,7 @@
 defmodule Noisex.MixProject do
   use Mix.Project
 
-  # @source_url "https://github.com/Phiriq/noisex"
+  @source_url "https://github.com/Phiriq/noisex"
   @version "0.1.1"
 
   def project do
@@ -12,7 +12,23 @@ defmodule Noisex.MixProject do
       start_permanent: Mix.env() == :prod,
       rustler_crates: rustler_crates(),
       dialyzer: dialyzer(),
-      deps: deps()
+      deps: deps(),
+
+      # Hex
+      description: "Work with different noise functions using Elixir",
+      package: package(),
+
+      # Docs
+      name: "Noisex",
+      source_url: @source_url
+    ]
+  end
+
+  defp package do
+    [
+      licenses: ["MIT"],
+      links: %{"GitHub" => @source_url},
+      exclude_patterns: ["priv/native", "priv/plts"]
     ]
   end
 
@@ -25,7 +41,7 @@ defmodule Noisex.MixProject do
 
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:eex, :logger]
     ]
   end
 
@@ -46,7 +62,7 @@ defmodule Noisex.MixProject do
       {:ex_doc, "~> 0.24", only: :dev, runtime: false},
       {:benchee, "~> 1.0.1", only: :dev},
       # Other dependencies
-      {:rustler, "~> 0.22.0-rc.1"}
+      {:rustler, "~> 0.21.1"}
     ]
   end
 end

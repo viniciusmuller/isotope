@@ -3,8 +3,21 @@
 
 Noisex is a library that provides Elixir bindings to the [bracket-noise](https://crates.io/crates/bracket-noise) crate, which is a rust port of [FastNoise Lite](https://github.com/Auburn/FastNoiseLite).
 
-<!-- ## Usage -->
-<!-- Check the documentation at `TODO: publish package` -->
+
+## Installation
+
+The package can be installed by adding `noisex` to your list of dependencies in `mix.exs`:
+
+```elixir
+def deps do
+  [
+    {:noisex, "~> 0.1.1"}
+  ]
+end
+```
+
+## Usage
+Check the documentation [here](https://hexdocs.pm/noisex/api-reference.html)
 
 ## Examples
 You can check and run the examples in the `examples` folder.

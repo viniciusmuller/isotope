@@ -8,6 +8,7 @@ defmodule Noisex.Utils do
 
   @doc """
   Writes the given noise map to a file.
+  `filename` requires an extension (`.png` is recommended).
   """
   @spec write_to_file(Noise.noisemap(), String.t()) :: :ok | {:error, term()}
   def write_to_file(noisemap, filename) do

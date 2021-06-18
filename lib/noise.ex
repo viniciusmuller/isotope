@@ -7,64 +7,44 @@ defmodule Noisex.Noise do
   """
 
   alias Noisex.NIF
+  alias Noisex.Options
 
   @typedoc """
   A reference to the noise generator. This is
   needed for most of the library functions.
   """
-  @type noise_ref :: reference()
+  @type noise_ref() :: reference()
 
   @typedoc """
   A noisemap object, represented by a list
   containing lists of floats (the noise values).
   """
-  @type noisemap :: [[float()]]
+  @type noisemap() :: [[float()]]
 
   @typedoc """
   A coordinate {x, y} in a cartesian plane.
   """
-  @type coord :: {integer(), integer()}
+  @type coord() :: {integer(), integer()}
 
   @typedoc """
   A tuple containing width and height
   """
-  @type size :: {non_neg_integer(), non_neg_integer()}
-
-  @typedoc """
-  Noise types available.
-  > `:simplex` and `:simplex_fractal` are actually OpenSimplex.
-  """
-  @type noise ::
-          :perlin
-          | :simplex
-          | :white
-          | :cubic
-          | :value
-          | :cellular
-          | :simplex_fractal
-          | :perin_fractal
-          | :cubic_fractal
-          | :value_fractal
-
-  @typedoc """
-  Fractal types available.
-  """
-  @type fractal :: :fbm | :rigid_multi | :billow
+  @type size() :: {non_neg_integer(), non_neg_integer()}
 
   @typedoc """
   Options available when initializing the noise.
   """
-  @type options :: __MODULE__.Options.t()
+  @type options() :: Options.t()
 
   @doc """
   Returns a new noise object.
   Use default noise options if options are not provided.
   """
   @spec new(options()) :: {atom, noise_ref()}
-  def new(), do: %Noisex.Noise.Options{} |> Map.from_struct() |> NIF.new()
+  def new(), do: NIF.new(%Options{})
 
   def new(options),
-    do: options |> Map.from_struct() |> NIF.new()
+    do: NIF.new(options)
 
   @doc """
   Returns a 2D noise map from `start_point` to `end_point`

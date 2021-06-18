@@ -2,6 +2,7 @@ defmodule Noisex.NoiseTest do
   use ExUnit.Case, async: true
 
   alias Noisex.Noise
+  alias Noisex.Options
 
   describe "nif noise object" do
     test "is a reference" do
@@ -10,9 +11,13 @@ defmodule Noisex.NoiseTest do
     end
   end
 
+  test "new/0 uses the default noise options" do
+    {:ok, _noise} = Noise.new()
+  end
+
   describe "perlin noise" do
     setup do
-      noise_opts = %Noise.Options{noise_type: :perlin}
+      noise_opts = %Options{noise_type: :perlin}
       {:ok, noise} = Noise.new(noise_opts)
 
       {:ok, noise: noise}

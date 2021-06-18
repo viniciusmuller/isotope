@@ -1,6 +1,5 @@
 defmodule Noisex.NIF do
   @moduledoc false
-  # TODO: Tests #
 
   use Rustler, otp_app: :noisex, crate: "noise"
   alias Noisex.Noise

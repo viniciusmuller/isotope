@@ -10,7 +10,6 @@ use rustler::{Atom, Env, NifStruct, Term};
 use std::path::Path;
 
 rustler::atoms! {
-    error, ok,
     // Noise types
     simplex, simplex_fractal, perlin, perlin_fractal,
     white, cubic, cubic_fractal, value, value_fractal,
@@ -23,7 +22,9 @@ rustler::atoms! {
     euclidean, manhattan, natural,
     // Cellular return type
     cell_value, distance, distance2, distance2add,
-    distance2sub, distance2mul, distance2div
+    distance2sub, distance2mul, distance2div,
+    // Others
+    error, ok, wrote
 }
 
 type NifNoiseType = Atom;
@@ -207,7 +208,7 @@ fn chunk(noise: ResourceArc<NoiseWrapper>, sx: i64, sy: i64, ex: i64, ey: i64) -
 }
 
 #[rustler::nif]
-fn write_to_file(noisemap: NoiseMap, filepath: &str) -> Result<&str, String> {
+fn write_to_file(noisemap: NoiseMap, filepath: &str) -> Result<Atom, String> {
     let x = noisemap.len();
     let y = noisemap.first().unwrap().len();
 
@@ -227,7 +228,7 @@ fn write_to_file(noisemap: NoiseMap, filepath: &str) -> Result<&str, String> {
         image::ColorType::L8,
     );
     match result {
-        Ok(_) => Ok("wrote"),
+        Ok(_) => Ok(wrote()),
         Err(e) => Err(e.to_string()),
     }
 }

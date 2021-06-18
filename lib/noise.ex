@@ -54,7 +54,7 @@ defmodule Noisex.Noise do
   @typedoc """
   Options available when initializing the noise.
   """
-  @type options :: Options.t()
+  @type options :: __MODULE__.Options.t()
 
   @doc """
   Returns a new noise object.

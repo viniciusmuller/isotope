@@ -1,5 +1,6 @@
 // TODO: Decrease repeated code by figuring out how to
 // pass the NoiseWrapper struct to functions
+// TODO: Add support to other library options on the elixir side.
 use bracket_noise::prelude::{FastNoise, FractalType, NoiseType};
 use rustler::resource::ResourceArc;
 use rustler::{Atom, Env, NifMap, Term};

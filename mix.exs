@@ -20,7 +20,17 @@ defmodule Noisex.MixProject do
 
       # Docs
       name: "Noisex",
-      source_url: @source_url
+      main: "Noisex",
+      source_url: @source_url,
+
+      # Coverage
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -61,6 +71,7 @@ defmodule Noisex.MixProject do
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.24", only: :dev, runtime: false},
       {:benchee, "~> 1.0.1", only: :dev},
+      {:excoveralls, "~> 0.10", only: :test},
       # Other dependencies
       {:rustler, "~> 0.22.0-rc.1"}
     ]

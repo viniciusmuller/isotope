@@ -62,7 +62,7 @@ defmodule Noisex.MixProject do
       {:ex_doc, "~> 0.24", only: :dev, runtime: false},
       {:benchee, "~> 1.0.1", only: :dev},
       # Other dependencies
-      {:rustler, "~> 0.21.1"}
+      {:rustler, "~> 0.22.0-rc.1"}
     ]
   end
 end

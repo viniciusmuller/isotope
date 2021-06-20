@@ -12,7 +12,7 @@ The package can be installed by adding `noisex` to your list of dependencies in 
 def deps do
   [
     # Currently tested with Elixir 1.12.1 and Erlang 24.0
-    {:noisex, "~> 0.1.2-rc"}
+    {:noisex, "~> 0.1.3-rc"}
   ]
 end
 ```

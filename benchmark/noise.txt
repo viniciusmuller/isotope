@@ -1,0 +1,155 @@
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz
+Number of Available Cores: 8
+Available memory: 15.59 GB
+Elixir 1.12.1
+Erlang 24.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+parallel: 1
+inputs: {100, 100}, {1000, 1000}, {250, 250}, {500, 500}
+Estimated total run time: 4.67 min
+
+Benchmarking cellular - generate noise map with input {100, 100}...
+Benchmarking cellular - generate noise map with input {1000, 1000}...
+Benchmarking cellular - generate noise map with input {250, 250}...
+Benchmarking cellular - generate noise map with input {500, 500}...
+Benchmarking cubic - generate noise map with input {100, 100}...
+Benchmarking cubic - generate noise map with input {1000, 1000}...
+Benchmarking cubic - generate noise map with input {250, 250}...
+Benchmarking cubic - generate noise map with input {500, 500}...
+Benchmarking cubic_fractal - generate noise map with input {100, 100}...
+Benchmarking cubic_fractal - generate noise map with input {1000, 1000}...
+Benchmarking cubic_fractal - generate noise map with input {250, 250}...
+Benchmarking cubic_fractal - generate noise map with input {500, 500}...
+Benchmarking perlin - generate noise map with input {100, 100}...
+Benchmarking perlin - generate noise map with input {1000, 1000}...
+Benchmarking perlin - generate noise map with input {250, 250}...
+Benchmarking perlin - generate noise map with input {500, 500}...
+Benchmarking perlin_fractal - generate noise map with input {100, 100}...
+Benchmarking perlin_fractal - generate noise map with input {1000, 1000}...
+Benchmarking perlin_fractal - generate noise map with input {250, 250}...
+Benchmarking perlin_fractal - generate noise map with input {500, 500}...
+Benchmarking simplex - generate noise map with input {100, 100}...
+Benchmarking simplex - generate noise map with input {1000, 1000}...
+Benchmarking simplex - generate noise map with input {250, 250}...
+Benchmarking simplex - generate noise map with input {500, 500}...
+Benchmarking simplex_fractal - generate noise map with input {100, 100}...
+Benchmarking simplex_fractal - generate noise map with input {1000, 1000}...
+Benchmarking simplex_fractal - generate noise map with input {250, 250}...
+Benchmarking simplex_fractal - generate noise map with input {500, 500}...
+Benchmarking value - generate noise map with input {100, 100}...
+Benchmarking value - generate noise map with input {1000, 1000}...
+Benchmarking value - generate noise map with input {250, 250}...
+Benchmarking value - generate noise map with input {500, 500}...
+Benchmarking value_fractal - generate noise map with input {100, 100}...
+Benchmarking value_fractal - generate noise map with input {1000, 1000}...
+Benchmarking value_fractal - generate noise map with input {250, 250}...
+Benchmarking value_fractal - generate noise map with input {500, 500}...
+Benchmarking white - generate noise map with input {100, 100}...
+Benchmarking white - generate noise map with input {1000, 1000}...
+Benchmarking white - generate noise map with input {250, 250}...
+Benchmarking white - generate noise map with input {500, 500}...
+
+##### With input {100, 100} #####
+Name                                           ips        average  deviation         median         99th %
+white - generate noise map                  6.32 K      158.29 μs    ±49.35%      103.51 μs      356.16 μs
+value - generate noise map                  4.39 K      228.00 μs    ±39.06%      172.91 μs      466.23 μs
+perlin - generate noise map                 4.09 K      244.45 μs    ±35.24%      183.54 μs      439.16 μs
+cellular - generate noise map               4.03 K      248.05 μs    ±34.54%      186.61 μs      455.06 μs
+cubic - generate noise map                  2.84 K      352.58 μs    ±26.45%      292.92 μs      573.92 μs
+simplex - generate noise map                2.62 K      381.95 μs    ±30.86%      338.23 μs      702.60 μs
+value_fractal - generate noise map          2.26 K      442.38 μs    ±22.97%      386.32 μs      695.77 μs
+perlin_fractal - generate noise map         1.88 K      533.13 μs    ±24.34%      472.55 μs      959.63 μs
+cubic_fractal - generate noise map          1.21 K      823.83 μs    ±15.14%      779.24 μs     1274.24 μs
+simplex_fractal - generate noise map        1.20 K      833.10 μs    ±27.74%      776.98 μs     1174.05 μs
+
+Comparison:
+white - generate noise map                  6.32 K
+value - generate noise map                  4.39 K - 1.44x slower +69.71 μs
+perlin - generate noise map                 4.09 K - 1.54x slower +86.17 μs
+cellular - generate noise map               4.03 K - 1.57x slower +89.76 μs
+cubic - generate noise map                  2.84 K - 2.23x slower +194.29 μs
+simplex - generate noise map                2.62 K - 2.41x slower +223.66 μs
+value_fractal - generate noise map          2.26 K - 2.79x slower +284.09 μs
+perlin_fractal - generate noise map         1.88 K - 3.37x slower +374.84 μs
+cubic_fractal - generate noise map          1.21 K - 5.20x slower +665.54 μs
+simplex_fractal - generate noise map        1.20 K - 5.26x slower +674.82 μs
+
+##### With input {1000, 1000} #####
+Name                                           ips        average  deviation         median         99th %
+white - generate noise map                   34.27       29.18 ms    ±53.19%       18.35 ms       53.92 ms
+value - generate noise map                   28.16       35.51 ms    ±45.76%       24.26 ms       70.73 ms
+cellular - generate noise map                26.97       37.08 ms    ±41.61%       26.40 ms       60.66 ms
+perlin - generate noise map                  26.73       37.41 ms    ±42.46%       26.46 ms       62.87 ms
+cubic - generate noise map                   20.29       49.29 ms    ±34.41%       37.07 ms       81.35 ms
+value_fractal - generate noise map           17.54       57.01 ms    ±29.02%       46.23 ms       86.11 ms
+simplex - generate noise map                 17.33       57.71 ms    ±35.12%       49.33 ms      111.85 ms
+perlin_fractal - generate noise map          15.82       63.23 ms    ±25.12%       52.46 ms       88.12 ms
+cubic_fractal - generate noise map           10.68       93.59 ms    ±16.71%       84.77 ms      124.87 ms
+simplex_fractal - generate noise map         10.42       95.94 ms    ±16.98%       86.25 ms      128.53 ms
+
+Comparison:
+white - generate noise map                   34.27
+value - generate noise map                   28.16 - 1.22x slower +6.33 ms
+cellular - generate noise map                26.97 - 1.27x slower +7.90 ms
+perlin - generate noise map                  26.73 - 1.28x slower +8.23 ms
+cubic - generate noise map                   20.29 - 1.69x slower +20.10 ms
+value_fractal - generate noise map           17.54 - 1.95x slower +27.82 ms
+simplex - generate noise map                 17.33 - 1.98x slower +28.53 ms
+perlin_fractal - generate noise map          15.82 - 2.17x slower +34.05 ms
+cubic_fractal - generate noise map           10.68 - 3.21x slower +64.41 ms
+simplex_fractal - generate noise map         10.42 - 3.29x slower +66.75 ms
+
+##### With input {250, 250} #####
+Name                                           ips        average  deviation         median         99th %
+white - generate noise map                 1002.49        1.00 ms    ±53.65%        0.64 ms        1.97 ms
+value - generate noise map                  736.83        1.36 ms    ±39.12%        1.00 ms        2.37 ms
+perlin - generate noise map                 662.27        1.51 ms    ±35.26%        1.17 ms        2.51 ms
+cellular - generate noise map               657.31        1.52 ms    ±35.77%        1.16 ms        2.59 ms
+simplex - generate noise map                435.41        2.30 ms    ±30.60%        1.88 ms        4.18 ms
+cubic - generate noise map                  418.91        2.39 ms    ±32.87%        1.94 ms        4.76 ms
+value_fractal - generate noise map          365.66        2.73 ms    ±24.96%        2.34 ms        4.64 ms
+perlin_fractal - generate noise map         317.08        3.15 ms    ±20.45%        2.75 ms        4.88 ms
+cubic_fractal - generate noise map          201.35        4.97 ms    ±11.94%        4.73 ms        6.56 ms
+simplex_fractal - generate noise map        184.66        5.42 ms    ±15.15%        5.01 ms        7.82 ms
+
+Comparison:
+white - generate noise map                 1002.49
+value - generate noise map                  736.83 - 1.36x slower +0.36 ms
+perlin - generate noise map                 662.27 - 1.51x slower +0.51 ms
+cellular - generate noise map               657.31 - 1.53x slower +0.52 ms
+simplex - generate noise map                435.41 - 2.30x slower +1.30 ms
+cubic - generate noise map                  418.91 - 2.39x slower +1.39 ms
+value_fractal - generate noise map          365.66 - 2.74x slower +1.74 ms
+perlin_fractal - generate noise map         317.08 - 3.16x slower +2.16 ms
+cubic_fractal - generate noise map          201.35 - 4.98x slower +3.97 ms
+simplex_fractal - generate noise map        184.66 - 5.43x slower +4.42 ms
+
+##### With input {500, 500} #####
+Name                                           ips        average  deviation         median         99th %
+white - generate noise map                  149.61        6.68 ms    ±47.78%        4.46 ms       11.79 ms
+value - generate noise map                  122.52        8.16 ms    ±40.00%        5.91 ms       14.40 ms
+cellular - generate noise map               113.02        8.85 ms    ±37.36%        6.66 ms       14.94 ms
+perlin - generate noise map                 104.29        9.59 ms    ±39.53%        7.28 ms       18.97 ms
+simplex - generate noise map                 87.85       11.38 ms    ±29.12%        9.22 ms       17.08 ms
+cubic - generate noise map                   84.39       11.85 ms    ±31.82%        9.38 ms       20.75 ms
+value_fractal - generate noise map           76.46       13.08 ms    ±24.74%       10.84 ms       18.91 ms
+perlin_fractal - generate noise map          65.43       15.28 ms    ±23.16%       12.93 ms       24.79 ms
+cubic_fractal - generate noise map           44.29       22.58 ms    ±13.99%       21.07 ms       29.62 ms
+simplex_fractal - generate noise map         43.37       23.06 ms    ±14.49%       20.97 ms       29.47 ms
+
+Comparison:
+white - generate noise map                  149.61
+value - generate noise map                  122.52 - 1.22x slower +1.48 ms
+cellular - generate noise map               113.02 - 1.32x slower +2.16 ms
+perlin - generate noise map                 104.29 - 1.43x slower +2.90 ms
+simplex - generate noise map                 87.85 - 1.70x slower +4.70 ms
+cubic - generate noise map                   84.39 - 1.77x slower +5.17 ms
+value_fractal - generate noise map           76.46 - 1.96x slower +6.39 ms
+perlin_fractal - generate noise map          65.43 - 2.29x slower +8.60 ms
+cubic_fractal - generate noise map           44.29 - 3.38x slower +15.90 ms
+simplex_fractal - generate noise map         43.37 - 3.45x slower +16.37 ms

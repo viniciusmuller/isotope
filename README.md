@@ -18,7 +18,7 @@ end
 ```
 
 ## Usage
-Check the documentation [here](https://hexdocs.pm/noisex/api-reference.html)
+Check the documentation [here](https://hexdocs.pm/noisex/0.1.3-rc/Noisex.html)
 
 ## Examples
 You can check and run the examples in the `examples` folder.

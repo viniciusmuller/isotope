@@ -1,6 +1,5 @@
 defmodule Noisex do
   @moduledoc """
-  ## Summary
   This library provides Elixir bindings to rust's [bracket-noise](https://crates.io/crates/bracket-noise)
   library, which is a rust port of [FastNoise](https://github.com/Auburn/FastNoiseLite).
 

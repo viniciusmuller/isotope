@@ -46,10 +46,15 @@ defmodule Isotope.MixProject do
     [
       licenses: ["MIT"],
       links: %{"GitHub" => @source_url},
-      exclude_patterns: ["priv/native", "priv/plts", "native/noise/target"],
+      exclude_patterns: [
+        "priv/plts",
+        "native/noise/target",
+        "priv/native/libnoise.so"
+      ],
       files: [
         "lib",
         "native",
+        "priv/native",
         ".formatter.exs",
         "README.md",
         "LICENSE",

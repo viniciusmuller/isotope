@@ -5,6 +5,10 @@
 priv/plts/*
 !priv/plts/.gitkeep
 
+# Rustler build arctifacts
+priv/native/*
+!priv/native/.gitkeep
+
 # If you run "mix test --cover", coverage assets end up here.
 /cover/
 
@@ -28,6 +32,3 @@ isotope-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
-
-# Rustler's arctifacts
-/priv/native

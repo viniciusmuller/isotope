@@ -1,20 +1,19 @@
-# Noisex
+# Isotope
 
-![CI Status](https://github.com/Phiriq/noisex/actions/workflows/ci.yml/badge.svg)
-![Coverage Status](https://coveralls.io/repos/Phiriq/noisex/badge.svg?branch=master)
+![CI Status](https://github.com/Phiriq/isotope/actions/workflows/ci.yml/badge.svg)
+![Coverage Status](https://coveralls.io/repos/Phiriq/isotope/badge.svg?branch=master)
 
-Noisex is a library that provides Elixir bindings to the [bracket-noise](https://crates.io/crates/bracket-noise) crate, which is a rust port of [FastNoise Lite](https://github.com/Auburn/FastNoiseLite).
-
+Isotope is a library that provides Elixir bindings to the [bracket-noise](https://crates.io/crates/bracket-noise) crate, which is a rust port of [FastNoise Lite](https://github.com/Auburn/FastNoiseLite).
 
 ## Installation
 
-The package can be installed by adding `noisex` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `isotope` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
     # Currently tested with Elixir 1.12.1 and Erlang 24.0
-    {:noisex, "~> 0.1.3-rc"}
+    {:isotope, "~> 0.1.1-rc"}
   ]
 end
 ```
@@ -29,6 +28,6 @@ mix run examples/<example>.exs
 ```
 
 ## Images
-![Output of the terrain.exs example](images/terrain.png)
-![Output of the cellular.exs example](images/cellular.png)
+![Output of the terrain.exs example script](images/terrain.png)
+![Output of the visualization.exs example script](images/visualization.png)
 

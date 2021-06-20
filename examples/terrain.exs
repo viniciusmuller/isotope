@@ -1,15 +1,15 @@
 seed = :rand.uniform(234_324)
 
-opts = %Noisex.Options{
+opts = %Isotope.Options{
   seed: seed,
   noise_type: :simplex_fractal,
   frequency: 3.0,
-  fractal_options: %Noisex.Options.Fractal{octaves: 4}
+  fractal_options: %Isotope.Options.Fractal{octaves: 4}
 }
 
-{:ok, noise} = Noisex.Noise.new(opts)
+{:ok, noise} = Isotope.Noise.new(opts)
 
-noisemap = Noisex.Noise.noise_map(noise, {40, 100})
+noisemap = Isotope.Noise.noise_map(noise, {40, 100})
 
 defmodule Helper do
   @mountains_offset 0.4

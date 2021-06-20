@@ -1,4 +1,4 @@
-defmodule Noisex.Options.Fractal do
+defmodule Isotope.Options.Fractal do
   @moduledoc """
   Options available for fractal noises.
   """

@@ -1,6 +1,6 @@
 defmodule Bench do
-  alias Noisex.Noise
-  alias Noisex.Options
+  alias Isotope.Noise
+  alias Isotope.Options
 
   @supported_noises [
     :perlin,

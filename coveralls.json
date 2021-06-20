@@ -1,6 +1,6 @@
 {
   "skip_files": [
-    "lib/noisex.ex",
+    "lib/isotope.ex",
     "lib/nif.ex",
     "lib/options"
   ]

@@ -1,5 +1,5 @@
-defmodule Noisex.Options do
-  alias Noisex.Options
+defmodule Isotope.Options do
+  alias Isotope.Options
 
   @moduledoc """
   Options available when initializing the noise.

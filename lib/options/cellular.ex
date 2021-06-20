@@ -1,4 +1,4 @@
-defmodule Noisex.Options.Cellular do
+defmodule Isotope.Options.Cellular do
   @moduledoc """
   Options available for cellular noises.
   """

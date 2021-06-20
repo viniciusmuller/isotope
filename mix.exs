@@ -1,12 +1,12 @@
-defmodule Noisex.MixProject do
+defmodule Isotope.MixProject do
   use Mix.Project
 
-  @source_url "https://github.com/Phiriq/noisex"
-  @version "0.1.3-rc"
+  @source_url "https://github.com/Phiriq/isotope"
+  @version "0.1.1-rc"
 
   def project do
     [
-      app: :noisex,
+      app: :isotope,
       version: @version,
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
@@ -20,8 +20,8 @@ defmodule Noisex.MixProject do
       package: package(),
 
       # Docs
-      name: "Noisex",
-      main: "Noisex",
+      name: "Isotope",
+      main: "Isotope",
       source_url: @source_url,
 
       # Coverage

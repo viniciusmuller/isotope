@@ -1,8 +1,8 @@
-defmodule Noisex.NIF do
+defmodule Isotope.NIF do
   @moduledoc false
 
-  use Rustler, otp_app: :noisex, crate: "noise"
-  alias Noisex.Noise
+  use Rustler, otp_app: :isotope, crate: "noise"
+  alias Isotope.Noise
 
   @spec chunk(Noise.noise_ref(), integer(), integer(), integer(), integer()) ::
           Noise.noisemap()

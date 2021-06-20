@@ -1,24 +1,24 @@
-defmodule Noisex.Utils do
+defmodule Isotope.Utils do
   @moduledoc """
   Utilitary functions for working with noise maps.
   """
 
-  alias Noisex.Noise
-  alias Noisex.NIF
+  alias Isotope.Noise
+  alias Isotope.NIF
 
   @doc """
   Writes the given noise map to a file.
   `filename` requires an extension (`.png` is recommended).
 
-      iex> {:ok, noise} = Noisex.Noise.new()
+      iex> {:ok, noise} = Isotope.Noise.new()
       iex> {:ok, :wrote} = noise
-      ...>                 |> Noisex.Noise.noise_map({50, 50})
-      ...>                 |> Noisex.Utils.write_to_file("my_test_noise.png")
+      ...>                 |> Isotope.Noise.noise_map({50, 50})
+      ...>                 |> Isotope.Utils.write_to_file("/tmp/my_test_noise.png")
 
-      iex> {:ok, noise} = Noisex.Noise.new()
+      iex> {:ok, noise} = Isotope.Noise.new()
       iex> {:error, _msg} = noise
-      ...>                 |> Noisex.Noise.noise_map({50, 50})
-      ...>                 |> Noisex.Utils.write_to_file("invalid.extension")
+      ...>                 |> Isotope.Noise.noise_map({50, 50})
+      ...>                 |> Isotope.Utils.write_to_file("/tmp/invalid.extension")
   """
   @spec write_to_file(Noise.noisemap(), String.t()) ::
           {:ok, :wrote} | {:error, String.t()}
@@ -31,9 +31,9 @@ defmodule Noisex.Utils do
   > This won't work if your terminal doesn't support ANSI color codes.
 
   ```elixir
-  {:ok, noise} = Noisex.Noise.new()
-  noise |> Noisex.Noise.noise_map({50, 50})
-        |> Noisex.Utils.show_noisemap()
+  {:ok, noise} = Isotope.Noise.new()
+  noise |> Isotope.Noise.noise_map({50, 50})
+        |> Isotope.Utils.show_noisemap()
   # Outputs noise visualization
   :ok
   ```

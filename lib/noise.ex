@@ -1,4 +1,4 @@
-defmodule Noisex.Noise do
+defmodule Isotope.Noise do
   @moduledoc """
   Provide functions to create and work with different types of noises.
   """
@@ -16,8 +16,8 @@ defmodule Noisex.Noise do
     :white
   ]
 
-  alias Noisex.NIF
-  alias Noisex.Options
+  alias Isotope.NIF
+  alias Isotope.Options
 
   @typedoc """
   A reference to the noise generator. This is
@@ -59,7 +59,7 @@ defmodule Noisex.Noise do
   @doc """
   Returns a new noise reference using the default options.
 
-      iex> {:ok, _ref} = Noisex.Noise.new()
+      iex> {:ok, _ref} = Isotope.Noise.new()
   """
   @spec new(options()) :: {:ok, noise_ref()} | {:error, :unsupported_noise}
   def new(), do: NIF.new(%Options{})
@@ -67,9 +67,9 @@ defmodule Noisex.Noise do
   @doc """
   Returns a new noise reference using the provided `options`.
 
-      iex> {:ok, _ref} = Noisex.Noise.new(%Noisex.Options{seed: 100})
+      iex> {:ok, _ref} = Isotope.Noise.new(%Isotope.Options{seed: 100})
 
-      iex> {:error, :unsupported_noise} = Noisex.Noise.new(%Noisex.Options{noise_type: :foobar})
+      iex> {:error, :unsupported_noise} = Isotope.Noise.new(%Isotope.Options{noise_type: :foobar})
   """
   def new(options) when options.noise_type not in @noise_types,
     do: {:error, :unsupported_noise}
@@ -79,8 +79,8 @@ defmodule Noisex.Noise do
   @doc """
   Returns a 2D noise map from `start_point` to `end_point`
 
-      iex> {:ok, noise} = Noisex.Noise.new(%Noisex.Options{seed: 100})
-      iex> Noisex.Noise.chunk(noise, {0, 0}, {100, 100})
+      iex> {:ok, noise} = Isotope.Noise.new(%Isotope.Options{seed: 100})
+      iex> Isotope.Noise.chunk(noise, {0, 0}, {100, 100})
   """
   @spec chunk(noise_ref(), coord(), coord()) :: noisemap()
   def chunk(noise, start_point, end_point)
@@ -93,12 +93,12 @@ defmodule Noisex.Noise do
   If `axes` is a 2-float tuple, it will return the 2D noise value for the point.
   If `axes` is a 3-float tuple, it will return the 3D noise value for the point.
 
-      iex> {:ok, noise} = Noisex.Noise.new()
-      iex> Noisex.Noise.get_noise(noise, {10.0, 10.0})
+      iex> {:ok, noise} = Isotope.Noise.new()
+      iex> Isotope.Noise.get_noise(noise, {10.0, 10.0})
       -0.6350845098495483
 
-      iex> {:ok, noise} = Noisex.Noise.new()
-      iex> Noisex.Noise.get_noise(noise, {10.0, 10.0, 10.0})
+      iex> {:ok, noise} = Isotope.Noise.new()
+      iex> Isotope.Noise.get_noise(noise, {10.0, 10.0, 10.0})
       -0.1322503685951233
   """
   @spec get_noise(noise_ref(), point2d() | point3d()) :: float()
@@ -109,8 +109,8 @@ defmodule Noisex.Noise do
   @doc """
   Generates a 2D noise map of `size` and returns it.
 
-      iex> {:ok, noise} = Noisex.Noise.new()
-      iex> Noisex.Noise.noise_map(noise, {20, 20})
+      iex> {:ok, noise} = Isotope.Noise.new()
+      iex> Isotope.Noise.noise_map(noise, {20, 20})
   """
   @spec noise_map(reference(), size()) :: noisemap()
   def noise_map(noise, size)

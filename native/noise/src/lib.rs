@@ -39,7 +39,7 @@ struct NoiseWrapper {
 }
 
 #[derive(NifStruct)]
-#[module = "Noisex.Options"]
+#[module = "Isotope.Options"]
 struct NoiseOptions {
     noise_type: NifNoiseType,
     interpolation: NifInterpolationType,
@@ -50,7 +50,7 @@ struct NoiseOptions {
 }
 
 #[derive(NifStruct)]
-#[module = "Noisex.Options.Cellular"]
+#[module = "Isotope.Options.Cellular"]
 struct CellularOptions {
     distance_function: Atom,
     return_type: Atom,
@@ -59,7 +59,7 @@ struct CellularOptions {
 }
 
 #[derive(NifStruct)]
-#[module = "Noisex.Options.Fractal"]
+#[module = "Isotope.Options.Fractal"]
 struct FractalOption {
     fractal_type: NifFractalType,
     lacunarity: f32,
@@ -240,7 +240,7 @@ fn write_to_file(noisemap: NoiseMap, filepath: &str) -> Result<Atom, String> {
 }
 
 rustler::init!(
-    "Elixir.Noisex.NIF",
+    "Elixir.Isotope.NIF",
     [noise_map, write_to_file, chunk, get_noise, get_noise3d, new],
     load = load
 );

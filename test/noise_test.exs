@@ -1,8 +1,8 @@
-defmodule Noisex.NoiseTestHelper do
+defmodule Isotope.NoiseTestHelper do
   defmacro test_noise(noise) do
     quote do
-      alias Noisex.Noise
-      alias Noisex.Options
+      alias Isotope.Noise
+      alias Isotope.Options
 
       describe "#{unquote(noise)} noise" do
         setup do
@@ -52,11 +52,11 @@ defmodule Noisex.NoiseTestHelper do
   end
 end
 
-defmodule Noisex.NoiseTest do
+defmodule Isotope.NoiseTest do
   use ExUnit.Case, async: true
-  doctest Noisex.Noise
+  doctest Isotope.Noise
 
-  import Noisex.NoiseTestHelper
+  import Isotope.NoiseTestHelper
 
   test_noise(:perlin)
   test_noise(:perlin_fractal)

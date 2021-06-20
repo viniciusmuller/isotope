@@ -2,7 +2,8 @@
 /_build/
 
 # The directory dialyzer outputs its PLTs
-/priv/plts/
+priv/plts/*
+!priv/plts/.gitkeep
 
 # If you run "mix test --cover", coverage assets end up here.
 /cover/

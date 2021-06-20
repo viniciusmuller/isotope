@@ -1,6 +1,5 @@
 // TODO: Decrease repeated code by figuring out how to
 // pass the NoiseWrapper struct to functions
-// TODO: Support 3d noises
 
 use bracket_noise::prelude::{
     CellularDistanceFunction, CellularReturnType, FastNoise, FractalType, Interp, NoiseType,
@@ -70,7 +69,14 @@ struct FractalOption {
 
 #[rustler::nif]
 fn get_noise(noise: ResourceArc<NoiseWrapper>, x: f32, y: f32) -> f32 {
+    // FIXME: Hardcoded values
     noise.noise.get_noise(x / 160.0, y / 100.0)
+}
+
+#[rustler::nif]
+fn get_noise3d(noise: ResourceArc<NoiseWrapper>, x: f32, y: f32, z: f32) -> f32 {
+    // FIXME: Hardcoded values
+    noise.noise.get_noise3d(x / 160.0, y / 100.0, z / 100.0)
 }
 
 // TODO: Maybe use DirtyIo //
@@ -235,6 +241,6 @@ fn write_to_file(noisemap: NoiseMap, filepath: &str) -> Result<Atom, String> {
 
 rustler::init!(
     "Elixir.Noisex.NIF",
-    [noise_map, write_to_file, chunk, get_noise, new],
+    [noise_map, write_to_file, chunk, get_noise, get_noise3d, new],
     load = load
 );

@@ -1,6 +1,6 @@
 defmodule Noisex.Options.Fractal do
   @moduledoc """
-  Options available for Fractal noises.
+  Options available for fractal noises.
   """
 
   @typedoc """

@@ -2,7 +2,7 @@ defmodule Noisex.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/Phiriq/noisex"
-  @version "0.1.1"
+  @version "0.1.3-rc"
 
   def project do
     [
@@ -13,6 +13,7 @@ defmodule Noisex.MixProject do
       rustler_crates: rustler_crates(),
       dialyzer: dialyzer(),
       deps: deps(),
+      aliases: aliases(),
 
       # Hex
       description: "Work with different noise functions using Elixir",
@@ -31,6 +32,13 @@ defmodule Noisex.MixProject do
         "coveralls.post": :test,
         "coveralls.html": :test
       ]
+    ]
+  end
+
+  defp aliases do
+    [
+      test: ["compile", "test"],
+      lint: ["format", "credo", "dialyzer"]
     ]
   end
 

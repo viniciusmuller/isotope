@@ -9,6 +9,16 @@ defmodule Noisex.Utils do
   @doc """
   Writes the given noise map to a file.
   `filename` requires an extension (`.png` is recommended).
+
+      iex> {:ok, noise} = Noisex.Noise.new()
+      iex> {:ok, :wrote} = noise
+      ...>                 |> Noisex.Noise.noise_map({50, 50})
+      ...>                 |> Noisex.Utils.write_to_file("my_test_noise.png")
+
+      iex> {:ok, noise} = Noisex.Noise.new()
+      iex> {:error, _msg} = noise
+      ...>                 |> Noisex.Noise.noise_map({50, 50})
+      ...>                 |> Noisex.Utils.write_to_file("invalid.extension")
   """
   @spec write_to_file(Noise.noisemap(), String.t()) ::
           {:ok, :wrote} | {:error, String.t()}
@@ -19,6 +29,14 @@ defmodule Noisex.Utils do
   @doc """
   Shows the given noise map on the stdout using ANSI color codes.
   > This won't work if your terminal doesn't support ANSI color codes.
+
+  ```elixir
+  {:ok, noise} = Noisex.Noise.new()
+  noise |> Noisex.Noise.noise_map({50, 50})
+        |> Noisex.Utils.show_noisemap()
+  # Outputs noise visualization
+  :ok
+  ```
   """
   @spec show_noisemap(Noise.noisemap()) :: :ok
   def show_noisemap(noisemap) do

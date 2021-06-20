@@ -6,13 +6,13 @@ defmodule Noisex.Options do
   """
 
   @typedoc """
-
+  Available types of interpolation.
   """
   @type interpolation() :: :linear | :quintic | :hermite
 
   @typedoc """
   Noise types available.
-  > `:simplex` and `:simplex_fractal` are actually OpenSimplex.
+  > `:simplex` and `:simplex_fractal` are actually OpenSimplex2.
   """
   @type noise() ::
           :perlin
@@ -22,7 +22,7 @@ defmodule Noisex.Options do
           | :value
           | :cellular
           | :simplex_fractal
-          | :perin_fractal
+          | :perlin_fractal
           | :cubic_fractal
           | :value_fractal
 

@@ -1,5 +1,7 @@
 # Noisex
+
 ![CI Status](https://github.com/Phiriq/noisex/actions/workflows/ci.yml/badge.svg)
+![Coverage Status](https://coveralls.io/repos/Phiriq/noisex/badge.svg?branch=master)
 
 Noisex is a library that provides Elixir bindings to the [bracket-noise](https://crates.io/crates/bracket-noise) crate, which is a rust port of [FastNoise Lite](https://github.com/Auburn/FastNoiseLite).
 

@@ -1,8 +1,7 @@
 defmodule Isotope.NoiseTestHelper do
   defmacro test_noise(noise) do
     quote do
-      alias Isotope.Noise
-      alias Isotope.Options
+      alias Isotope.{Noise, Options}
 
       describe "#{unquote(noise)} noise" do
         setup do

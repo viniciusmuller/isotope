@@ -4,8 +4,7 @@ defmodule Isotope.UtilsTest do
 
   import ExUnit.CaptureIO
 
-  alias Isotope.Noise
-  alias Isotope.Utils
+  alias Isotope.{Noise, Utils}
 
   test "show_noisemap/1 outputs visualization to stdout" do
     {:ok, noise} = Noise.new()

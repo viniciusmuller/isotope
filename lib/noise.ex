@@ -16,8 +16,7 @@ defmodule Isotope.Noise do
     :white
   ]
 
-  alias Isotope.NIF
-  alias Isotope.Options
+  alias Isotope.{NIF, Options}
 
   @typedoc """
   A reference to the noise generator. This is

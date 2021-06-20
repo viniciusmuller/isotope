@@ -17,6 +17,7 @@ def deps do
   ]
 end
 ```
+And running `mix deps.get, deps.compile`.
 
 ## Usage
 Check the documentation [here](https://hexdocs.pm/noisex/0.1.3-rc/Noisex.html)

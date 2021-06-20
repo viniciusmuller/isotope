@@ -3,8 +3,7 @@ defmodule Isotope.Utils do
   Utilitary functions for working with noise maps.
   """
 
-  alias Isotope.Noise
-  alias Isotope.NIF
+  alias Isotope.{Noise, NIF}
 
   @doc """
   Writes the given noise map to a file.

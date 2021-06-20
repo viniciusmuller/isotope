@@ -2,7 +2,7 @@ defmodule Isotope.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/Phiriq/isotope"
-  @version "0.1.1-rc"
+  @version "0.1.2-rc"
 
   def project do
     [
@@ -46,7 +46,15 @@ defmodule Isotope.MixProject do
     [
       licenses: ["MIT"],
       links: %{"GitHub" => @source_url},
-      exclude_patterns: ["priv/native", "priv/plts"]
+      exclude_patterns: ["priv/native", "priv/plts", "native/noise/target"],
+      files: [
+        "lib",
+        "native",
+        ".formatter.exs",
+        "README.md",
+        "LICENSE",
+        "mix.exs"
+      ]
     ]
   end
 

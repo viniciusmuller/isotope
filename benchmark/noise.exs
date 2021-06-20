@@ -1,6 +1,5 @@
 defmodule Bench do
-  alias Isotope.Noise
-  alias Isotope.Options
+  alias Isotope.{Noise, Options}
 
   @supported_noises [
     :perlin,

@@ -6,7 +6,6 @@ use bracket_noise::prelude::{
 };
 use rustler::resource::ResourceArc;
 use rustler::{Atom, Env, NifStruct, Term};
-use std::path::Path;
 
 rustler::atoms! {
     // Noise types
@@ -213,34 +212,8 @@ fn chunk(noise: ResourceArc<NoiseWrapper>, sx: i64, sy: i64, ex: i64, ey: i64) -
     noisemap
 }
 
-#[rustler::nif]
-fn write_to_file(noisemap: NoiseMap, filepath: &str) -> Result<Atom, String> {
-    let x = noisemap.len();
-    let y = noisemap.first().unwrap().len();
-
-    let mut pixels: Vec<u8> = Vec::with_capacity(x * y);
-
-    for x in noisemap.iter() {
-        for y in x.iter() {
-            pixels.push(((y * 0.5 + 0.5).clamp(0.0, 1.0) * 255.0) as u8);
-        }
-    }
-
-    let result = image::save_buffer(
-        &Path::new(&filepath),
-        &*pixels,
-        x as u32,
-        y as u32,
-        image::ColorType::L8,
-    );
-    match result {
-        Ok(_) => Ok(wrote()),
-        Err(e) => Err(e.to_string()),
-    }
-}
-
 rustler::init!(
     "Elixir.Isotope.NIF",
-    [noise_map, write_to_file, chunk, get_noise, get_noise3d, new],
+    [noise_map, chunk, get_noise, get_noise3d, new],
     load = load
 );

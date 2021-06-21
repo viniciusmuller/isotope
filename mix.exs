@@ -2,7 +2,7 @@ defmodule Isotope.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/Phiriq/isotope"
-  @version "0.1.2-rc"
+  @version "0.1.3-rc"
 
   def project do
     [
@@ -94,7 +94,8 @@ defmodule Isotope.MixProject do
       {:benchee, "~> 1.0.1", only: :dev},
       {:excoveralls, "~> 0.10", only: :test},
       # Other dependencies
-      {:rustler, "~> 0.22.0-rc.1"}
+      {:rustler, "~> 0.22.0-rc.1"},
+      {:ex_png, "~> 1.0.0"}
     ]
   end
 end

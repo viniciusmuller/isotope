@@ -3,26 +3,28 @@ defmodule Isotope.Utils do
   Utilitary functions for working with noise maps.
   """
 
-  alias Isotope.{Noise, NIF}
+  alias Isotope.Noise
 
   @doc """
-  Writes the given noise map to a file.
-  `filename` requires an extension (`.png` is recommended).
+  Writes the given noise map to a PNG file.
 
       iex> {:ok, noise} = Isotope.Noise.new()
-      iex> {:ok, :wrote} = noise
-      ...>                 |> Isotope.Noise.noise_map({50, 50})
-      ...>                 |> Isotope.Utils.write_to_file("/tmp/my_test_noise.png")
-
-      iex> {:ok, noise} = Isotope.Noise.new()
-      iex> {:error, _msg} = noise
-      ...>                 |> Isotope.Noise.noise_map({50, 50})
-      ...>                 |> Isotope.Utils.write_to_file("/tmp/invalid.extension")
+      iex> {:ok, "/tmp/my_test_noise.png"} =
+      ...>   noise
+      ...>     |> Isotope.Noise.noise_map({200, 200})
+      ...>     |> Isotope.Utils.write_to_file("/tmp/my_test_noise.png")
   """
-  @spec write_to_file(Noise.noisemap(), String.t()) ::
-          {:ok, :wrote} | {:error, String.t()}
+  @spec write_to_file(Noise.noisemap(), String.t()) :: {:ok, String.t()}
   def write_to_file(noisemap, filename) do
-    NIF.write_to_file(noisemap, filename)
+    noisemap
+    |> Enum.map(fn row -> Enum.map(row, &to_pixel/1) end)
+    |> ExPng.Image.new()
+    |> ExPng.Image.to_file(filename)
+  end
+
+  defp to_pixel(noise_value) do
+    value = trunc((noise_value * 0.5 + 0.5) * 255)
+    ExPng.Color.grayscale(value)
   end
 
   @doc """

@@ -13,14 +13,14 @@ The package can be installed by adding `isotope` to your list of dependencies in
 def deps do
   [
     # Currently tested with Elixir 1.12.1 and Erlang 24.0
-    {:isotope, "~> 0.1.2-rc"}
+    {:isotope, "~> 0.1.3-rc"}
   ]
 end
 ```
 And running `mix deps.get, deps.compile`.
 
 ## Usage
-Check the documentation [here](https://hexdocs.pm/noisex/0.1.3-rc/Noisex.html)
+Check the documentation [here](https://hexdocs.pm/isotope)
 
 ## Examples
 You can check and run the examples in the `examples` folder.

@@ -10,10 +10,6 @@ defmodule Isotope.NIF do
   def chunk(_noise, _sx, _sy, _ex, _ey),
     do: error()
 
-  @spec write_to_file(Noise.noisemap(), String.t()) :: :ok | {:error, term()}
-  @doc false
-  def write_to_file(_noisemap, _filename), do: error()
-
   @spec new(Noise.options()) :: {atom, Noise.noise_ref()}
   @doc false
   def new(_options), do: error()

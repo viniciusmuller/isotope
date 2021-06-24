@@ -32,3 +32,6 @@ isotope-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# Direnv arctifacts
+/.direnv/

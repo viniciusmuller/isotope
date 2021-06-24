@@ -22,9 +22,11 @@ defmodule Isotope.Utils do
     |> ExPng.Image.to_file(filename)
   end
 
+  @spec to_pixel(float()) :: ExPng.Color.t()
   defp to_pixel(noise_value) do
-    value = trunc((noise_value * 0.5 + 0.5) * 255)
-    ExPng.Color.grayscale(value)
+    ((noise_value * 0.5 + 0.5) * 255)
+    |> trunc()
+    |> ExPng.Color.grayscale()
   end
 
   @doc """

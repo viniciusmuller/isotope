@@ -192,22 +192,35 @@ fn get_noise_type(atom: Atom) -> NoiseType {
 }
 
 #[rustler::nif]
-fn chunk(noise: ResourceArc<NoiseWrapper>, sx: i64, sy: i64, ex: i64, ey: i64) -> NoiseMap {
-    // TODO: Use vec with capacity later //
-    let mut noisemap = Vec::new();
+fn chunk(noise: ResourceArc<NoiseWrapper>, sx: i64, sy: i64, width: i64, height: i64) -> NoiseMap {
+    // TODO: Fix this. Still don't produces aligned chunks, which means something here is wrong.
+    let dx = (sx - width).abs();
+    let dy = (sy - height).abs();
 
-    let (greatest_x, minor_x) = if sx < ex { (ex, sx) } else { (sx, ex) };
-    let (greatest_y, minor_y) = if sy < ey { (ey, sy) } else { (sy, ey) };
+    let mut noisemap = Vec::with_capacity((dx + 1) as usize);
 
-    for i in minor_y..(greatest_y + 1) {
-        let mut x_axis = Vec::new();
-        for j in minor_x..(greatest_x + 1) {
+    let range_x = if width < 0 && width < sx {
+        (sx - dx)..(sx + 1)
+    } else {
+        sx..(sx + width + 1)
+    };
+
+    for x in range_x {
+        let mut axis = Vec::with_capacity((dy + 1) as usize);
+
+        let range_y = if height < 0 && height < sy {
+            (sy - dy)..(sy + 1)
+        } else {
+            sy..(sy + height + 1)
+        };
+
+        for y in range_y {
             let point = noise
                 .noise
-                .get_noise((i as f32) / 160.0, (j as f32) / 100.0);
-            x_axis.push(point);
+                .get_noise((x as f32) / 160.0, (y as f32) / 100.0);
+            axis.push(point);
         }
-        noisemap.push(x_axis);
+        noisemap.push(axis)
     }
     noisemap
 }

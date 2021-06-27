@@ -76,16 +76,16 @@ defmodule Isotope.Noise do
   def new(options), do: NIF.new(options)
 
   @doc """
-  Returns a 2D noise map from `start_point` to `end_point`
+  Returns a 2D noise map from `start_point` which of `width` and `height`
 
       iex> {:ok, noise} = Isotope.Noise.new(%Isotope.Options{seed: 100})
-      iex> Isotope.Noise.chunk(noise, {0, 0}, {100, 100})
+      iex> Isotope.Noise.chunk(noise, {0, 0}, 100, 100)
   """
-  @spec chunk(noise_ref(), coord(), coord()) :: noisemap()
-  def chunk(noise, start_point, end_point)
+  @spec chunk(noise_ref(), coord(), integer(), integer()) :: noisemap()
+  def chunk(noise, start_point, width, height)
 
-  def chunk(noise, {start_x, start_y}, {end_x, end_y}),
-    do: NIF.chunk(noise, start_x, start_y, end_x, end_y)
+  def chunk(noise, {start_x, start_y}, width, height),
+    do: NIF.chunk(noise, start_x, start_y, width, height)
 
   @doc """
   Returns the 2D or 3D noise value depending on `axes`.

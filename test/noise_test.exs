@@ -29,22 +29,18 @@ defmodule Isotope.NoiseTestHelper do
         end
 
         test "can generate a chunk given two coordinates", %{noise: noise} do
-          # TODO: Improve chunk function, currently not returning reliable results
-          # for inputs that doesn't make square. Or maybe the tests aren't correct
-          # sx = 200
-          # ex = 400
-          # sy = -200
-          # ey = -600
-          sx = 1000
-          sy = 1000
-          ex = 0
-          ey = 0
-          start_point = {sx, sy}
-          end_point = {ex, ey}
+          {sx, sy} = start_point = {200, -600}
+          width = -200
+          height = 400
 
-          noise_map = Noise.chunk(noise, start_point, end_point)
-          assert length(noise_map) == distance(sx, ex) + 1
-          assert noise_map |> List.first() |> length() == distance(sy, ey) + 1
+          noise_map = Noise.chunk(noise, start_point, width, height)
+
+          assert·noise_map·|>·List.first()·|>·length()·==
+
+          assert length(noise_map) == distance(sx, width) + 1
+
+          assert noise_map |> List.first() |> length() ==
+                   distance(sy, height) + 1
         end
       end
     end

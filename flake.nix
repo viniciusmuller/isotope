@@ -16,13 +16,15 @@
       rec {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
-            glibcLocales
             elixir_ls
             my-elixir
             rebar3
+
+            rust-analyzer
             cargo
             rustc
             clippy
+            rustfmt
           ];
         };
       }

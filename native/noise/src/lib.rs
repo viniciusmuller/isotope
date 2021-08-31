@@ -80,21 +80,8 @@ fn get_noise3d(noise: ResourceArc<NoiseWrapper>, x: f32, y: f32, z: f32) -> f32 
 
 // TODO: Maybe use DirtyIo //
 #[rustler::nif]
-fn noise_map(noise: ResourceArc<NoiseWrapper>, x: i64, y: i64) -> NoiseMap {
-    let mut x_axis = Vec::with_capacity(x as usize);
-
-    for i in 0..x {
-        let mut y_axis = Vec::with_capacity(y as usize);
-        for j in 0..y {
-            y_axis.push(
-                noise
-                    .noise
-                    .get_noise((i as f32) / 160.0, (j as f32) / 100.0),
-            )
-        }
-        x_axis.push(y_axis);
-    }
-    x_axis
+fn noise_map(noise: ResourceArc<NoiseWrapper>, width: u64, height: u64) -> NoiseMap {
+    internal_chunk(noise, 0, 0, width, height)
 }
 
 #[rustler::nif]
@@ -191,38 +178,33 @@ fn get_noise_type(atom: Atom) -> NoiseType {
     }
 }
 
-#[rustler::nif]
-fn chunk(noise: ResourceArc<NoiseWrapper>, sx: i64, sy: i64, width: i64, height: i64) -> NoiseMap {
-    // TODO: Fix this. Still don't produces aligned chunks, which means something here is wrong.
-    let dx = (sx - width).abs();
-    let dy = (sy - height).abs();
+fn internal_chunk(
+    noise: ResourceArc<NoiseWrapper>,
+    px: i64,
+    py: i64,
+    width: u64,
+    height: u64,
+) -> NoiseMap {
+    let mut noisemap = Vec::with_capacity(width as usize);
 
-    let mut noisemap = Vec::with_capacity((dx + 1) as usize);
+    for y in 0..height {
+        let mut axis = Vec::with_capacity(height as usize);
+        for x in 0..width {
+            let point = noise.noise.get_noise(
+                ((px + (x as i64)) as f32) / 160.0,
+                ((py + (y as i64)) as f32) / 100.0,
+            );
 
-    let range_x = if width < 0 && width < sx {
-        (sx - dx)..(sx + 1)
-    } else {
-        sx..(sx + width + 1)
-    };
-
-    for x in range_x {
-        let mut axis = Vec::with_capacity((dy + 1) as usize);
-
-        let range_y = if height < 0 && height < sy {
-            (sy - dy)..(sy + 1)
-        } else {
-            sy..(sy + height + 1)
-        };
-
-        for y in range_y {
-            let point = noise
-                .noise
-                .get_noise((x as f32) / 160.0, (y as f32) / 100.0);
             axis.push(point);
         }
         noisemap.push(axis)
     }
     noisemap
+}
+
+#[rustler::nif]
+fn chunk(noise: ResourceArc<NoiseWrapper>, px: i64, py: i64, width: u64, height: u64) -> NoiseMap {
+    internal_chunk(noise, px, py, width, height)
 }
 
 rustler::init!(

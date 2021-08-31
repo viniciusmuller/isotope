@@ -30,17 +30,13 @@ defmodule Isotope.NoiseTestHelper do
 
         test "can generate a chunk given two coordinates", %{noise: noise} do
           {sx, sy} = start_point = {200, -600}
-          width = -200
+          width = 200
           height = 400
 
           noise_map = Noise.chunk(noise, start_point, width, height)
 
-          assert·noise_map·|>·List.first()·|>·length()·==
-
-          assert length(noise_map) == distance(sx, width) + 1
-
-          assert noise_map |> List.first() |> length() ==
-                   distance(sy, height) + 1
+          assert length(noise_map) == height
+          assert noise_map |> List.first() |> length() == width
         end
       end
     end
@@ -69,9 +65,5 @@ defmodule Isotope.NoiseTest do
       {:ok, noise} = Noise.new()
       assert is_reference(noise)
     end
-  end
-
-  defp distance(s, e) do
-    abs(s - e)
   end
 end

@@ -76,12 +76,13 @@ defmodule Isotope.Noise do
   def new(options), do: NIF.new(options)
 
   @doc """
-  Returns a 2D noise map from `start_point` which of `width` and `height`
+  Returns a 2D noise map from `start_point` which has `width` and `height`
 
       iex> {:ok, noise} = Isotope.Noise.new(%Isotope.Options{seed: 100})
       iex> Isotope.Noise.chunk(noise, {0, 0}, 100, 100)
   """
-  @spec chunk(noise_ref(), coord(), integer(), integer()) :: noisemap()
+  @spec chunk(noise_ref(), coord(), non_neg_integer(), non_neg_integer()) ::
+          noisemap()
   def chunk(noise, start_point, width, height)
 
   def chunk(noise, {start_x, start_y}, width, height),

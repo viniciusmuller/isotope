@@ -10,6 +10,8 @@ in
 mkShell {
   nativeBuildInputs = with pkgs; [
     glibcLocales
+    elixir_ls
+    rebar3
     cargo
     rustc
     elixir

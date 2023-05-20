@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        elixir: [1.14.4]
+        elixir: [1.13.4, 1.14.4]
         otp: [24.0, 25.0]
 
     steps:
@@ -61,7 +61,6 @@ jobs:
       run: mix dialyzer --no-check --halt-exit-status
 
     - name: Run Tests
-      run: mix coveralls.github
+      run: mix test
       env:
         MIX_ENV: test
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

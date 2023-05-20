@@ -19,19 +19,18 @@ defmodule Isotope.MixProject do
       description: "Work with different noise functions using Elixir",
       package: package(),
 
+      test_coverage: [
+        ignore_modules: [
+          Isotope.Options.Cellular,
+          Isotope.Options.Fractal,
+          Isotope.NIF
+        ]
+      ],
+
       # Docs
       name: "Isotope",
       main: "Isotope",
-      source_url: @source_url,
-
-      # Coverage
-      test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [
-        coveralls: :test,
-        "coveralls.detail": :test,
-        "coveralls.post": :test,
-        "coveralls.html": :test
-      ]
+      source_url: @source_url
     ]
   end
 
@@ -92,7 +91,6 @@ defmodule Isotope.MixProject do
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.27", only: :dev, runtime: false},
       {:benchee, "~> 1.0", only: :dev},
-      {:excoveralls, "~> 0.10", only: :test},
       # Other dependencies
       {:rustler, "~> 0.28.0"}
     ]

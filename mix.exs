@@ -1,8 +1,8 @@
 defmodule Isotope.MixProject do
   use Mix.Project
 
-  @source_url "https://github.com/Phiriq/isotope"
-  @version "0.1.3-rc"
+  @source_url "https://github.com/viniciusmuller/isotope"
+  @version "0.2.0"
 
   def project do
     [
@@ -88,14 +88,13 @@ defmodule Isotope.MixProject do
   defp deps do
     [
       # Development dependencies
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
-      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
-      {:ex_doc, "~> 0.24", only: :dev, runtime: false},
-      {:benchee, "~> 1.0.1", only: :dev},
+      {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:ex_doc, "~> 0.27", only: :dev, runtime: false},
+      {:benchee, "~> 1.0", only: :dev},
       {:excoveralls, "~> 0.10", only: :test},
       # Other dependencies
-      {:rustler, "~> 0.22.0-rc.1"},
-      {:ex_png, "~> 1.0.0"}
+      {:rustler, "~> 0.28.0"}
     ]
   end
 end

@@ -17,9 +17,9 @@ defmodule Isotope.UtilsTest do
       end
       |> capture_io
 
-    assert String.contains?(output, "▒")
+    assert output =~ "▒"
     # output contains characters used in ansi codes
-    assert String.contains?(output, "[")
-    assert String.contains?(output, ";")
+    assert output =~ "["
+    assert output =~ ";"
   end
 end

@@ -12,8 +12,7 @@ The package can be installed by adding `isotope` to your list of dependencies in
 ```elixir
 def deps do
   [
-    # Currently tested with Elixir 1.12.1 and Erlang 24.0
-    {:isotope, "~> 0.1.3-rc"}
+    {:isotope, "~> 0.2.0"}
   ]
 end
 ```

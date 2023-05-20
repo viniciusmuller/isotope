@@ -7,18 +7,12 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        my-elixir = (pkgs.beam.packagesWith pkgs.erlangR24).elixir.override {
-          version = "1.12.1";
-          sha256 = "sha256-gRgGXb4btMriQwT/pRIYOJt+NM7rtYBd+A3SKfowC7k=";
-          minimumOTPVersion = "22";
-        };
       in
       rec {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             elixir_ls
-            my-elixir
-            rebar3
+            elixir_1_14
 
             rust-analyzer
             cargo

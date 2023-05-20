@@ -18,7 +18,6 @@ defmodule Isotope.MixProject do
       # Hex
       description: "Work with different noise functions using Elixir",
       package: package(),
-
       test_coverage: [
         ignore_modules: [
           Isotope.Options.Cellular,

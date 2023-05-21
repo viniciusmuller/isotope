@@ -1,7 +1,0 @@
-{
-  "skip_files": [
-    "lib/isotope.ex",
-    "lib/nif.ex",
-    "lib/options"
-  ]
-}
